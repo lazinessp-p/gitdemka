@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MaybeNextTime BTW.iml" filepath="$PROJECT_DIR$/MaybeNextTime BTW.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JAVA OOP/JAVA OOP.iml" filepath="$PROJECT_DIR$/JAVA OOP/JAVA OOP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gitdemka.iml" filepath="$PROJECT_DIR$/gitdemka.iml" />
     </modules>
   </component>
 </project>
