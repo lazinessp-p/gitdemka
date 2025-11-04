@@ -1,23 +1,20 @@
 import java.util.Arrays;
-import java.util.Random;
 
-public class Arrays_of_numbers {
+public class Arrays_Of_Numbers {
         private int[] num;
-        public Arrays_of_numbers(int[] num){
+        public Arrays_Of_Numbers(int[] num){
             this.num = num;
         }
-        public void ymnozh() {
+        public void multiplication() {
             for(int i = 0; i < num.length - 1; i++)
             {
-                if (num[i] > 0) {
-                    if (num[i + 1] < 0) {
+                if (num[i] > 0 && num[i + 1] < 0) {
                         num[i] *= 3;
-                    }
                 }
             }
         }
 
-        public void zamena() {
+        public void replacement() {
             for (int i = 0; i < num.length; i++) {
                 if (num[i] < 0) {
                     num[i] = 0;
@@ -25,37 +22,35 @@ public class Arrays_of_numbers {
             }
         }
 
-        public int vich()
+        public int calculation()
         {
-            int count = 0;
-            for(int i = 0; i < num.length; i++)
+            int sum_elem = 0;
+            for(int i = 0; i < num.length; i+=2)
             {
-                if (i % 2 == 0) {
-                    count = count + num[i];
-                }
+                sum_elem = sum_elem + num[i];
             }
-            return count;
+            return sum_elem;
         }
         public int[][] rotate(int[][] num2D)
         {
             int rows = num2D.length;
             int cols = num2D[0].length;
-            int [][] Num = new int[rows][cols];
+            int [][] num2d = new int[rows][cols];
             for(int i = 0; i < rows; i++)
             {
                 for(int j = 0; j < cols; j++)
                 {
-                    Num[j][rows - 1 - i] = num2D[i][j];
+                    num2d[j][rows - 1 - i] = num2D[i][j];
                 }
             }
-            return Num;
+            return num2d;
         }
-        public void dupl(){
-            System.out.print("elem vstrech bolee 1 raza:");
+        public void meeting(){
+            System.out.print("элементы встречающиеся более 1 раза:");
             for(int i = 1; i < num.length; i+=2){
                 int count = 0;
-                for(int j = 0; j < num.length; j++){
-                    if(num[i] == num[j]) {
+                for (int value : num) {
+                    if (num[i] == value) {
                         count++;
                     }
                 }
@@ -89,32 +84,31 @@ public class Arrays_of_numbers {
         }
         public static void main(String[] args)
         {
-            Random rand = new Random();
             int[] num = new int[20];
             for(int i = 0; i < num.length; i++)
             {
                 num[i] = (-10 + (int) (Math.random() * ((10 - (-10)) + 1)));
             }
-            System.out.println("isxodn massiv" + Arrays.toString(num));
-            Arrays_of_numbers process = new Arrays_of_numbers(num);
-            System.out.println("summa elem na chetn poz:" + process.vich());
-            process.ymnozh();
-            System.out.println("mass posle ymnozh:" + Arrays.toString(num));
-            process.zamena();
-            System.out.println("mass posle zameni: " + Arrays.toString(num));
-            process.dupl();
+            System.out.println("исходный массив" + Arrays.toString(num));
+            Arrays_Of_Numbers process = new Arrays_Of_Numbers(num);
+            System.out.println("сумма элементов на четных позициях:" + process.calculation());
+            process.multiplication();
+            System.out.println("массив после умножения:" + Arrays.toString(num));
+            process.replacement();
+            System.out.println("масив после замены: " + Arrays.toString(num));
+            process.meeting();
             int[][] matr = {{1 , 2, 3}, {4, 5, 6}, {7, 8, 9}};
-            System.out.println("isxodn matrica:");
+            System.out.println("исходная матрица:");
             for (int[] row : matr){
                 System.out.println(Arrays.toString(row));
             }
             int [][] rotatematr = process.rotate(matr);
-            System.out.println("pvernytay matrica:");
+            System.out.println("перевернутая матрица:");
             for (int[] row : rotatematr){
                 System.out.println(Arrays.toString(row));
             }
             int x = 5;
             long fact = process.factor(x);
-            System.out.println("fact chisla " + x + ": " + fact);
+            System.out.println("факториал числа " + x + ": " + fact);
         }
     }

@@ -1,56 +1,66 @@
 import java.util.Scanner;
 
-public class Calculator {public static void main(String[] args)
-{
-    Scanner scanner = new Scanner(System.in);
-
-    System.out.println("Консольный калькулятор");
-    System.out.println("Выберите операцию:");
-    System.out.println("1. Сложение (+)");
-    System.out.println("2. Вычитание (-)");
-    System.out.println("3. Умножение (*)");
-    System.out.println("4. Деление (/)");
-
-    System.out.print("Введите номер операции: ");
-    int c = scanner.nextInt();
-
-    double result = 0;
-    boolean error = false;
-
-    System.out.print("Введите число A: ");
-    double a = scanner.nextDouble();
-
-    System.out.print("Введите число B: ");
-    double b = scanner.nextDouble();
-
-    switch (c) {
-        case 1:
-            result = a + b;
-            break;
-        case 2:
-            result = a - b;
-            break;
-        case 3:
-            result = a * b;
-            break;
-        case 4:
-            if (b == 0) {
-                System.out.println("Error: divide by zero");
-                error = true;
-            } else {
-                result = a / b;
-            }
-            break;
-        default:
-            System.out.println("Error 404.");
-            error = true;
-            break;
+public class Calculator {
+    public static double perform_operation(double a, double b, String operator) {
+        switch (operator) {
+            case "+":
+                return a + b;
+            case "-":
+                return a - b;
+            case "*":
+                return a * b;
+            case "/":
+                if (b == 0) {
+                    return Double.NaN;
+                } else {
+                    return a / b;
+                }
+            default:
+                return Double.NaN;
+        }
     }
 
-    if (!error) {
-        System.out.println("Result = " + result);
-    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-    scanner.close();
-}
+        System.out.println("Консольный калькулятор");
+
+        System.out.print("Введите первое число: ");
+        if (!scanner.hasNextDouble()) {
+            System.out.println("Error: Некорректный ввод. Ожидалось целое число.");
+            scanner.close();
+            return;
+        }
+        double a = scanner.nextDouble();
+
+        System.out.print("Введите операцию (+, -, *, /): ");
+        String operator = scanner.next();
+
+        if (!operator.equals("+") && !operator.equals("-") &&
+                !operator.equals("*") && !operator.equals("/")) {
+            System.out.println("Error: Некорректная операция. Пожалуйста, введите один из символов: +, -, *, /.");
+            scanner.close();
+            return;
+        }
+
+        System.out.print("Введите второе число: ");
+        if (!scanner.hasNextDouble()) {
+            System.out.println("Error: Некорректный ввод. Ожидалось целое цисло.");
+            scanner.close();
+            return;
+        }
+        double b = scanner.nextDouble();
+
+        double result = perform_operation(a, b, operator);
+
+        if (Double.isNaN(result) && operator.equals("/") && b == 0) {
+            System.out.println("Error: произошло деление на ноль");
+        } else if (Double.isNaN(result)) {
+            System.out.println("Error: Произошла непредвиденная ошибка вычисления.");
+        } else {
+            System.out.println("Result = " + result);
+        }
+
+        scanner.close();
+    }
 }
