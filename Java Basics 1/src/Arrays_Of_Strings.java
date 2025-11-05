@@ -52,7 +52,7 @@ public class Arrays_Of_Strings {private String[] strings;
         String[] digit = new String[strings.length];
         int digitcount = 0;
         for (String str : strings) {
-            if (isdigitonly(str)) {
+            if (check_string_for_numbers(str)) {
                 digit[digitcount++] = str;
             }
         }
@@ -62,18 +62,18 @@ public class Arrays_Of_Strings {private String[] strings;
         } else if (digitcount > 1) {
             return digit[1];
         } else {
-            return "найдна только одна строка состоящая только из цифр.";
+            return "найдена только одна строка состоящая только из цифр.";
         }
     }
 
-    public int count_unique_string()
+    public int calculate_the_naumber_of_unique_rows()
     {
         int count = 0;
         for (String str : strings)
         {
             if (str != null && !str.isEmpty())
             {
-                if (is_unique_chars(str))
+                if (check_a_string_for_unique_characters(str))
                 {
                     count++;
                 }
@@ -82,7 +82,7 @@ public class Arrays_Of_Strings {private String[] strings;
         return count;
     }
 
-    private boolean isdigitonly(String str)
+    private boolean check_string_for_numbers(String str)
     {
         if (str == null || str.isEmpty())
         {
@@ -98,7 +98,7 @@ public class Arrays_Of_Strings {private String[] strings;
         return true;
     }
 
-    private boolean is_unique_chars(String str)
+    private boolean check_a_string_for_unique_characters(String str)
     {
         if (str == null || str.isEmpty())
         {
@@ -121,7 +121,7 @@ public class Arrays_Of_Strings {private String[] strings;
     {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("введите количсевто строк: ");
+        System.out.print("введите количество строк: ");
         int n = scanner.nextInt();
         scanner.nextLine();
         String[] strings = new String[n];
@@ -150,7 +150,7 @@ public class Arrays_Of_Strings {private String[] strings;
 
         System.out.println("\nвторая строка цифр: " + processor.find_a_string_of_numbers());
 
-        System.out.println("\nколичество строк с уникальными символами: " + processor.count_unique_string());
+        System.out.println("\nколичество строк с уникальными символами: " + processor.calculate_the_naumber_of_unique_rows());
 
     }
 }
