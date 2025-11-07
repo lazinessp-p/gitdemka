@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Calculator {
-    public static double perform_operation(double a, double b, String operator) {
+    public static double performOperation(double a, double b, String operator) {
         switch (operator) {
             case "+":
                 return a + b;
@@ -51,7 +51,7 @@ public class Calculator {
         }
         double b = scanner.nextDouble();
 
-        double result = perform_operation(a, b, operator);
+        double result = performOperation(a, b, operator);
 
         if (Double.isNaN(result) && operator.equals("/") && b == 0) {
             System.out.println("Error: произошло деление на ноль");

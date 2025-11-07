@@ -1,13 +1,13 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Arrays_Of_Strings {private String[] strings;
+public class ArraysOfStrings {private String[] strings;
 
-    public Arrays_Of_Strings(String[] strings) {
+    public ArraysOfStrings(String[] strings) {
         this.strings = strings;
     }
 
-    public String find_a_short_string() {
+    public String findAShortString() {
         String shortest = null;
         for (String str : strings) {
             if (str != null && !str.isEmpty()) {
@@ -23,7 +23,7 @@ public class Arrays_Of_Strings {private String[] strings;
         }
     }
 
-    public String[] find_rows_greater_than_average() {
+    public String[] findRowsGreaterThanAverage() {
         int totallength = 0;
         int count = 0;
 
@@ -48,11 +48,11 @@ public class Arrays_Of_Strings {private String[] strings;
         return Arrays.copyOf(ls, longercount);
     }
 
-    public String find_a_string_of_numbers() {
+    public String findAStringOfNumbers() {
         String[] digit = new String[strings.length];
         int digitcount = 0;
         for (String str : strings) {
-            if (check_string_for_numbers(str)) {
+            if (checkStringForNumbers(str)) {
                 digit[digitcount++] = str;
             }
         }
@@ -66,14 +66,14 @@ public class Arrays_Of_Strings {private String[] strings;
         }
     }
 
-    public int calculate_the_naumber_of_unique_rows()
+    public int calculateTheNumberOfUniqueRows()
     {
         int count = 0;
         for (String str : strings)
         {
             if (str != null && !str.isEmpty())
             {
-                if (check_a_string_for_unique_characters(str))
+                if (checkAStringForUniqueCharacters(str))
                 {
                     count++;
                 }
@@ -82,7 +82,7 @@ public class Arrays_Of_Strings {private String[] strings;
         return count;
     }
 
-    private boolean check_string_for_numbers(String str)
+    private boolean checkStringForNumbers(String str)
     {
         if (str == null || str.isEmpty())
         {
@@ -98,7 +98,7 @@ public class Arrays_Of_Strings {private String[] strings;
         return true;
     }
 
-    private boolean check_a_string_for_unique_characters(String str)
+    private boolean checkAStringForUniqueCharacters(String str)
     {
         if (str == null || str.isEmpty())
         {
@@ -131,11 +131,11 @@ public class Arrays_Of_Strings {private String[] strings;
             strings[i] = scanner.nextLine();
         }
         scanner.close();
-        Arrays_Of_Strings processor = new Arrays_Of_Strings(strings);
+        ArraysOfStrings processor = new ArraysOfStrings(strings);
 
-        System.out.println("\nсамая короткая строка: " + processor.find_a_short_string());
+        System.out.println("\nсамая короткая строка: " + processor.findAShortString());
 
-        String[] longer = processor.find_rows_greater_than_average();
+        String[] longer = processor.findRowsGreaterThanAverage();
         System.out.println("\nстроки длины которых больше средней:");
         if (longer.length == 0)
         {
@@ -148,9 +148,9 @@ public class Arrays_Of_Strings {private String[] strings;
             }
         }
 
-        System.out.println("\nвторая строка цифр: " + processor.find_a_string_of_numbers());
+        System.out.println("\nвторая строка цифр: " + processor.findAStringOfNumbers());
 
-        System.out.println("\nколичество строк с уникальными символами: " + processor.calculate_the_naumber_of_unique_rows());
+        System.out.println("\nколичество строк с уникальными символами: " + processor.calculateTheNumberOfUniqueRows());
 
     }
 }

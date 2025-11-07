@@ -1,11 +1,11 @@
 import java.util.Arrays;
 
-public class Arrays_Of_Numbers {
+public class ArraysOfNumbers {
         private int[] num;
-        public Arrays_Of_Numbers(int[] num){
+        public ArraysOfNumbers(int[] num){
             this.num = num;
         }
-        public void multiply_by_three() {
+        public void multiplyByThree() {
             for(int i = 0; i < num.length - 1; i++)
             {
                 if (num[i] > 0 && num[i + 1] < 0) {
@@ -14,7 +14,7 @@ public class Arrays_Of_Numbers {
             }
         }
 
-        public void replace_with_zeros() {
+        public void replaceWithZeros() {
             for (int i = 0; i < num.length; i++) {
                 if (num[i] < 0) {
                     num[i] = 0;
@@ -45,7 +45,7 @@ public class Arrays_Of_Numbers {
             }
             return num2d;
         }
-        public void find_elem_more_than_once(){
+        public void findElemMoreThanOnce(){
             System.out.print("элементы встречающиеся более 1 раза:");
             for(int i = 1; i < num.length; i+=2){
                 int count = 0;
@@ -69,7 +69,7 @@ public class Arrays_Of_Numbers {
             }
             System.out.println();
         }
-        public long calculate_the_factorial(int x){
+        public long calculateTheFactorial(int x){
             if(x < 0){
                 System.out.print("факториал нельзя определить для отрицательного числа");
             }
@@ -90,13 +90,13 @@ public class Arrays_Of_Numbers {
                 num[i] = (-10 + (int) (Math.random() * ((10 - (-10)) + 1)));
             }
             System.out.println("исходный массив" + Arrays.toString(num));
-            Arrays_Of_Numbers process = new Arrays_Of_Numbers(num);
+            ArraysOfNumbers process = new ArraysOfNumbers(num);
             System.out.println("сумма элементов на четных позициях:" + process.calculate());
-            process.multiply_by_three();
+            process.multiplyByThree();
             System.out.println("массив после умножения:" + Arrays.toString(num));
-            process.replace_with_zeros();
+            process.replaceWithZeros();
             System.out.println("массив после замены: " + Arrays.toString(num));
-            process.find_elem_more_than_once();
+            process.findElemMoreThanOnce();
             int[][] matr = {{1 , 2, 3}, {4, 5, 6}, {7, 8, 9}};
             System.out.println("исходная матрица:");
             for (int[] row : matr){
@@ -108,7 +108,7 @@ public class Arrays_Of_Numbers {
                 System.out.println(Arrays.toString(row));
             }
             int x = 5;
-            long fact = process.calculate_the_factorial(x);
+            long fact = process.calculateTheFactorial(x);
             System.out.println("факториал числа " + x + ": " + fact);
         }
     }
