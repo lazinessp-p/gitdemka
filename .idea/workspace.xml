@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30b4aff7-6719-45f7-937e-47c786e9e743" name="Changes" comment="модуль Java Basics обновлён" />
+    <list default="true" id="30b4aff7-6719-45f7-937e-47c786e9e743" name="Changes" comment="модуль Java Basics обновлён">
+      <change afterPath="$PROJECT_DIR$/JAVA OOP/src/com/example/gifts/Gift.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA OOP/src/com/example/gifts/NewYearsGift.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA OOP/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaybeNextTime BTW/src/HelloJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/MaybeNextTime BTW/src/com/example/com/HelloJava.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaybeNextTime BTW/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/MaybeNextTime BTW/src/com/example/com/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaybeNextTime BTW/src/chetvertoezadanie.java" beforeDir="false" afterPath="$PROJECT_DIR$/MaybeNextTime BTW/src/com/example/com/chetvertoezadanie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaybeNextTime BTW/src/tretiezadanie.java" beforeDir="false" afterPath="$PROJECT_DIR$/MaybeNextTime BTW/src/com/example/com/tretiezadanie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaybeNextTime BTW/src/vtoroezadanie.java" beforeDir="false" afterPath="$PROJECT_DIR$/MaybeNextTime BTW/src/com/example/com/vtoroezadanie.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,17 +56,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Никита/Desktop/java test dz/gitdemka&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Никита/Desktop/java test dz/gitdemka/Java Basics 1/src/Main.java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.NewYearsGift.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Никита/Desktop/java test dz/gitdemka",
+    "onboarding.tips.debug.path": "C:/Users/Никита/Desktop/java test dz/gitdemka/Java Basics 1/src/Main.java"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="gitdemka" />
@@ -119,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762348844969</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="модуль Java Basics обновлён">
+      <option name="closed" value="true" />
+      <created>1762532407326</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1762532407326</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
