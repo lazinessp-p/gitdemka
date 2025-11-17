@@ -1,7 +1,6 @@
 package com.example.gifts;
 import com.example.gifts.sweet.Sweet;
 import com.example.gifts.utils.Data;
-
 import java.util.Scanner;
 import java.util.List;
 public class NewYearsGift {
