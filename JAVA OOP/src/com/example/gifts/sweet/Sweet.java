@@ -1,5 +1,5 @@
 package com.example.gifts.sweet;
-public abstract class Sweet {
+public class Sweet {
     private String name;
     private int weight;
     private double price;

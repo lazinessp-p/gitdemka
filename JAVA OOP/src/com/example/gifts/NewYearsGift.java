@@ -1,13 +1,13 @@
 package com.example.gifts;
 import com.example.gifts.sweet.Sweet;
-import com.example.gifts.utils.Data;
+import com.example.gifts.utils.DataGenerator;
 import java.util.Scanner;
 import java.util.List;
 public class NewYearsGift {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Создание подарка");
-        Sweet[] generatedSweets = Data.generate(10);
+        Sweet[] generatedSweets = DataGenerator.generate(10);
         Gift giftBox = new Gift(generatedSweets);
         System.out.println("\nСостав подарка:");
         for (Sweet sweet : giftBox.getSweets()) {
