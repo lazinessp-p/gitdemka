@@ -1,8 +1,11 @@
 package com.example.gifts;
+
 import com.example.gifts.sweet.Sweet;
 import com.example.gifts.utils.DataGenerator;
+
 import java.util.Scanner;
 import java.util.List;
+
 public class NewYearsGift {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -10,6 +13,7 @@ public class NewYearsGift {
         Sweet[] generatedSweets = DataGenerator.generate(10);
         Gift giftBox = new Gift(generatedSweets);
         System.out.println("\nСостав подарка:");
+
         for (Sweet sweet : giftBox.getSweets()) {
             System.out.println("  - " + sweet);
         }
@@ -21,7 +25,7 @@ public class NewYearsGift {
         List<Sweet> foundSweets = giftBox.findSweetsInPriceRange(minPrice, maxPrice);
         System.out.printf("\nСладости в ценовом диапазоне от %.2f до %.2f:%n", minPrice, maxPrice);
         if (!foundSweets.isEmpty()) {
-            for(Sweet sweet : foundSweets) {
+            for (Sweet sweet : foundSweets) {
                 System.out.println("  - " + sweet.getName() + ", Цена: " + String.format("%.2f", sweet.getPrice()) + "р");
             }
         } else {
