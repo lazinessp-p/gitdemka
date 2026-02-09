@@ -11,8 +11,35 @@ public class StringProcessing {
      return result;
     }
 
+    public static void main(String[] args) {
+     Scanner scanner = new Scanner(System.in);
+     StringProcessing processor = new StringProcessing();
+     System.out.println("впишите положительное число: ");
+     if (scanner.hasNextInt()) {
+         int n = scanner.nextInt();
+         System.out.println("число в двоичном коде: " + processor.convertNumbersToBinaryCode(n));
+     }
+     else{
+         System.out.println("404 введите другое число");
+     }
+     scanner.nextLine();
+     System.out.println("впишите цвет в формате HEX: ");
+     String hex = scanner.nextLine();
+     System.out.println("rgb(" + processor.convertHEXToRGB(hex) + ")");
+     scanner.nextLine();
+     System.out.println("впишите строку: ");
+     String opposite = scanner.nextLine();
+        System.out.println("строка с противоположными регистрами: " + processor.changeCaseToOpposite(opposite));
+     scanner.nextLine();
+     System.out.println("впишите количество символов в одной строке: ");
+     int x = scanner.nextInt();
+     processor.printArrayElementsInPortions(x);
+     scanner.close();
+    }
+
     public String convertHEXToRGB(String hex){
-        if (hex == null || !hex.startsWith("#") || hex.length() != 7) {
+        String hexdigit = hex.substring(1);
+        if (hex == null || !hex.startsWith("#") || hex.length() != 7 || !hexdigit.matches("[0-9A-Fa-f]{6}")) {
             return "ошибка: неверный формат HEX (ожидается #RRGGBB)";
         }
         else {
@@ -24,23 +51,6 @@ public class StringProcessing {
             int b = Integer.parseInt(bHex, 16);
             return r + ", " + g + ", " + b;
         }
-    }
-
-    public String changeCaseToTheOpposite(String opposite){
-        StringBuilder result = new StringBuilder();
-        for(int i = 0; i < opposite.length(); i++){
-            char c = opposite.charAt(i);
-            if(Character.isUpperCase(c)){
-                result.append(Character.toLowerCase(c));
-            }
-            else if(Character.isLowerCase(c)){
-                result.append(Character.toUpperCase(c));
-            }
-            else{
-                result.append(c);
-            }
-        }
-        return result.toString();
     }
 
     public void printArrayElementsInPortions(int x) {
@@ -72,29 +82,20 @@ public class StringProcessing {
         scanner1.close();
     }
 
-    public static void main(String[] args) {
-     Scanner scanner = new Scanner(System.in);
-     StringProcessing processor = new StringProcessing();
-     System.out.println("впишите положительное число: ");
-     if (scanner.hasNextInt()) {
-         int n = scanner.nextInt();
-         System.out.println("число в двоичном коде: " + processor.convertNumbersToBinaryCode(n));
-     }
-     else{
-         System.out.println("404 введите другое число");
-     }
-     scanner.nextLine();
-     System.out.println("впишите цвет в формате HEX: ");
-     String hex = scanner.nextLine();
-     System.out.println("rgb(" + processor.convertHEXToRGB(hex) + ")");
-     scanner.nextLine();
-     System.out.println("впишите строку: ");
-     String opposite = scanner.nextLine();
-     System.out.println("строка с противоположными регистрами: " + processor.changeCaseToTheOpposite(opposite));
-     scanner.nextLine();
-     System.out.println("впишите количество символов в одной строке: ");
-     int x = scanner.nextInt();
-     processor.printArrayElementsInPortions(x);
-     scanner.close();
+    public String changeCaseToOpposite(String opposite) {
+        StringBuilder result = new StringBuilder();
+        for(int i = 0; i < opposite.length(); i++){
+            char c = opposite.charAt(i);
+            if(Character.isUpperCase(c)){
+                result.append(Character.toLowerCase(c));
+            }
+            else if(Character.isLowerCase(c)){
+                result.append(Character.toUpperCase(c));
+            }
+            else{
+                result.append(c);
+            }
+        }
+        return result.toString();
     }
 }

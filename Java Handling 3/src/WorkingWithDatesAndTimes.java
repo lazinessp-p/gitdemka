@@ -1,14 +1,10 @@
-import java.util.Scanner;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
-import java.time.LocalDateTime;
-import java.time.Duration;
-import java.time.LocalTime;
+import java.util.Scanner;
 public class WorkingWithDatesAndTimes {
 
     public String getMonthName(int month_number){
@@ -29,27 +25,7 @@ public class WorkingWithDatesAndTimes {
         }
     }
 
-    public List<String> findFridayThe13ths(int year){
-        List<String> results = new ArrayList<>();
-        for (int month = 1; month <= 12; month++) {
-            LocalDate date = LocalDate.of(year, month, 13);
-            if (date.getDayOfWeek() == DayOfWeek.FRIDAY) {
-                results.add(date.getDayOfMonth() + " " + date.getMonth() + " " + year);
-            }
-        }
-        return results;
-    }
-
-    public String getLastDayOfMonthFormatted(LocalDate date) {
-        if (date == null) {
-            return "ошибка: дата не указана";
-        }
-        LocalDate lastDay = date.with(TemporalAdjusters.lastDayOfMonth());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE MMM d, yyyy", Locale.ENGLISH);
-        return lastDay.format(formatter);
-    }
-
-    public static LocalDateTime findTheMostDistantDates(LocalDateTime[] date_arr) {
+    public static LocalDateTime findMostDistantDates(LocalDateTime[] date_arr) {
         if (date_arr == null || date_arr.length == 0) {
             throw new IllegalArgumentException("массив дат не может быть null или пустым.");
         }
@@ -68,13 +44,13 @@ public class WorkingWithDatesAndTimes {
         return farthestdate;
     }
 
-    public double calculateHowManyHoursRemainFromTheTransmittedTimeUntilMidnight(LocalDateTime time){
-        if (time == null) {
-            throw new IllegalArgumentException("время не может быть null.");
+    public String getLastDayOfMonthFormatted(LocalDate date) {
+        if (date == null) {
+            return "ошибка: дата не указана";
         }
-        LocalDateTime midnight_today = LocalDateTime.of(time.toLocalDate(), LocalTime.MIDNIGHT).plusDays(1);
-        Duration difference = Duration.between(time, midnight_today);
-        return difference.toMinutes() / 60.0;
+        LocalDate lastDay = date.with(TemporalAdjusters.lastDayOfMonth());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE MMM d, yyyy", Locale.ENGLISH);
+        return lastDay.format(formatter);
     }
 
     public static void main(String[] args) {
@@ -86,7 +62,7 @@ public class WorkingWithDatesAndTimes {
         scanner.nextLine();
         System.out.println("впишите год: ");
         int year = scanner.nextInt();
-        System.out.println("количество пятниц 13 в " + year + " году: " + processor.findFridayThe13ths(year));
+        System.out.println("количество пятниц 13 в " + year + " году: " + processor.findFriday13ths(year));
         scanner.close();
         LocalDate date = LocalDate.of(2021, 1, 15);
         System.out.println("дата вычислений: " + date);
@@ -97,10 +73,31 @@ public class WorkingWithDatesAndTimes {
                 LocalDateTime.now().plusDays(10),
                 LocalDateTime.now().minusDays(1)
         };
-        System.out.println("наиболее удаленная дата от нынешней: " + findTheMostDistantDates(date_now));
+        System.out.println("наиболее удаленная дата от нынешней: " + findMostDistantDates(date_now));
         LocalDateTime now = LocalDateTime.now();
-        double hours_before_midnight = processor.calculateHowManyHoursRemainFromTheTransmittedTimeUntilMidnight(now);
+        double hours_before_midnight = processor.calculateHowManyHoursUntilMidnight(now);
         System.out.println("осталось часов до полуночи: " + hours_before_midnight);
+    }
+
+    public List<String> findFriday13ths(int year) {
+        List<String> results = new ArrayList<>();
+        for (int month = 1; month <= 12; month++) {
+            LocalDate date = LocalDate.of(year, month, 13);
+            if (date.getDayOfWeek() == DayOfWeek.FRIDAY) {
+                results.add(date.getDayOfMonth() + " " + date.getMonth() + " " + year);
+            }
+        }
+        return results;
+    }
+
+    public double calculateHowManyHoursUntilMidnight(LocalDateTime time) {
+        if (time == null) {
+            throw new IllegalArgumentException("время не может быть null.");
+        }
+        LocalDateTime midnight_today = LocalDateTime.of(time.toLocalDate(), LocalTime.MIDNIGHT).plusDays(1);
+        Duration difference = Duration.between(time, midnight_today);
+        double hours = difference.toMinutes() / 60.0;
+        return (double) Math.round(hours);
     }
 
 }
