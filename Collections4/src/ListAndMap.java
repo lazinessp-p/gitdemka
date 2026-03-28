@@ -204,7 +204,7 @@ public class ListAndMap {
         System.out.println("Введите элементы для Map-1: ");
         Map<String, String> map1 = new HashMap<String, String>();
         while (true) {
-            System.out.print("Введите числовой ключ (или 'exit' для выхода): ");
+            System.out.print("Введите ключ (или 'exit' для выхода): ");
             String input = scanner.nextLine();
             if ("exit".equalsIgnoreCase(input)) {
                 System.out.println("Выходим из цикла...");
@@ -224,7 +224,7 @@ public class ListAndMap {
         System.out.println("Введите элементы для Map-2: ");
         Map<String, String> map2 = new HashMap<String, String>();
         while (true) {
-            System.out.print("Введите числовой ключ (или 'exit' для выхода): ");
+            System.out.print("Введите ключ (или 'exit' для выхода): ");
             String input = scanner.nextLine();
             if ("exit".equalsIgnoreCase(input)) {
                 System.out.println("Выходим из цикла...");

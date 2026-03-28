@@ -124,6 +124,7 @@ public class StreamAPI {
         monthLengths.forEach((month, length) ->
                 System.out.println(month + " = " + length)
         );
+        scanner.nextLine();
         System.out.println("Впишите строку из символов: ");
         String line = scanner.nextLine();
         char result = findsTheMostFrequentCharacter(line);
@@ -132,7 +133,7 @@ public class StreamAPI {
         System.out.println("Введите элементы для Map-1: ");
         Map<String, String> map1 = new HashMap<String, String>();
         while (true) {
-            System.out.print("Введите числовой ключ (или 'exit' для выхода): ");
+            System.out.print("Введите ключ (или 'exit' для выхода): ");
             String input = scanner.nextLine();
             if ("exit".equalsIgnoreCase(input)) {
                 System.out.println("Выходим из цикла...");
@@ -145,14 +146,14 @@ public class StreamAPI {
                 map1.put(key, valueMap);
                 System.out.println("Успешно добавлено: [" + key + " = " + valueMap + "]");
                 System.out.println("---");
-            } catch (NumberFormatException e) {
-                System.out.println("Ошибка: Ключ должен быть целым числом или 'exit'!");
+            } catch (IllegalArgumentException e) {
+                System.out.println("Ошибка: Введите ключ или 'exit'!");
             }
         }
         System.out.println("Введите элементы для Map-2: ");
         Map<String, String> map2 = new HashMap<String, String>();
         while (true) {
-            System.out.print("Введите числовой ключ (или 'exit' для выхода): ");
+            System.out.print("Введите ключ (или 'exit' для выхода): ");
             String input = scanner.nextLine();
             if ("exit".equalsIgnoreCase(input)) {
                 System.out.println("Выходим из цикла...");
@@ -165,8 +166,8 @@ public class StreamAPI {
                 map2.put(key, valueMap);
                 System.out.println("Успешно добавлено: [" + key + " = " + valueMap + "]");
                 System.out.println("---");
-            } catch (NumberFormatException e) {
-                System.out.println("Ошибка: Ключ должен быть целым числом или 'exit'!");
+            } catch (IllegalArgumentException e) {
+                System.out.println("Ошибка: Введите ключ или 'exit'!");
             }
         }
         doubleMap.add(map1);
