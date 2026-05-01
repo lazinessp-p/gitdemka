@@ -1,16 +1,17 @@
 package com.example.gifts.sweet;
+
+import com.example.gifts.exception.InvalidSweetAttributeException;
+
 public class Chocolate extends Sweet {
-    private String type;
-    public Chocolate(String name, int weight, double price, String type){
+    private final String type;
+
+    public Chocolate(String name, int weight, double price, String type) throws InvalidSweetAttributeException {
         super(name, weight, price);
         this.type = type;
     }
-    public String getType(){
-        return type;
-    }
 
     @Override
-    public String toString(){
-        return "chocolate{" + "name=" + getName() + '\'' + getWeight() + "price=" + getPrice() + "type=" + type + "\'" + "}";
+    public String toString() {
+        return String.format("Шоколад {Название='%s', Вес=%d, Цена=%.2f, Тип='%s'}", getName(), getWeight(), getPrice(), type);
     }
 }

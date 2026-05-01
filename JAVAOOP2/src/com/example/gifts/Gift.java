@@ -1,31 +1,41 @@
 package com.example.gifts;
+
+import com.example.gifts.exception.InvalidPriceRangeException;
 import com.example.gifts.sweet.Sweet;
+
 import java.util.ArrayList;
 import java.util.List;
 public class Gift {
-    private Sweet[] sweets;
-    public Gift(Sweet[] sweets){
-        this.sweets = sweets;
+    private final Sweet[] sweets;
+
+    public Gift(Sweet[] sweets) {
+        this.sweets = (sweets != null) ? sweets : new Sweet[0];
     }
-    public int calculate(){
+
+    public int calculate() {
         int total = 0;
-        for(Sweet sweet : sweets){
-            if(sweet != null){
+        for (Sweet sweet : sweets) {
+            if (sweet != null) {
                 total += sweet.getWeight();
             }
         }
         return total;
     }
-    public Sweet[] getSweets(){
+
+    public Sweet[] getSweets() {
         return sweets;
     }
 
-    public List<Sweet> findSweetsInPriceRange(double minPrice, double maxPrice){
+    public List<Sweet> findSweetsInPriceRange(double minPrice, double maxPrice) throws InvalidPriceRangeException {
+        if (minPrice > maxPrice) {
+            throw new InvalidPriceRangeException("Ошибка: Минимальная цена (" + minPrice + ") больше максимальной (" + maxPrice + ")");
+        }
+
         List<Sweet> foundSweets = new ArrayList<>();
-        for(Sweet sweet : sweets){
-            if(sweet != null){
+        for (Sweet sweet : sweets) {
+            if (sweet != null) {
                 double price = sweet.getPrice();
-                if(price >= minPrice && price <= maxPrice){
+                if (price >= minPrice && price <= maxPrice) {
                     foundSweets.add(sweet);
                 }
             }
